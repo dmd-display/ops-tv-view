@@ -1,1 +1,40 @@
 # ops-tv-view
+
+html_content = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PDF Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    iframe {
+      width: 90%;
+      height: 90vh;
+      border: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h1>Presentation Viewer</h1>
+  <iframe src="Processing Operations 7-25-2025.pdf"></iframe>
+</body>
+</html>
+"""
+
+with open("index.html", "w") as f:
+    f.write(html_content)
+
+print("index.html file has been created successfully.")
+
+
