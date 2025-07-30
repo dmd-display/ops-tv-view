@@ -40,7 +40,18 @@
     <h1>Presentation Viewer</h1>
     <img src="DMD_logo.png" alt="Company Logo" class="logo">
   </div>
-  <iframe src="Processing Operations 7-25-2025.pdf"></iframe>
+
+  <iframe id="pdfViewer" src="Processing Operations 7-25-2025.pdf#page=1"></iframe>
+
+  <script>
+    const totalPages = 7; // 🔁 Set this to the actual number of pages in your PDF
+    const pdfFile = "Processing Operations 7-25-2025.pdf";
+    let currentPage = 1;
+
+    setInterval(() => {
+      currentPage = (currentPage % totalPages) + 1;
+      document.getElementById("pdfViewer").src = `${pdfFile}#page=${currentPage}`;
+    }, 60000); // Every 60 seconds
+  </script>
 </body>
 </html>
-"""
