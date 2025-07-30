@@ -25,33 +25,25 @@
     .logo {
       height: 40px;
     }
-    iframe {
-      width: 90%;
-      height: 90vh;
-      border: none;
+    .gif-container {
+      display: flex;
+      justify-content: center;
+    }
+    .gif-container img {
+      max-width: 90%;
+      max-height: 90vh;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      display: block;
-      margin: 0 auto;
     }
   </style>
 </head>
 <body>
   <div class="header">
-    <h1>Data Viewer</h1>
+    <h1>Presentation Viewer</h1>
     <img src="DMD_logo.png" alt="Company Logo" class="logo">
   </div>
 
-  <iframe id="pdfViewer" src="Processing Operations 7-25-2025.pdf#page=1"></iframe>
-
-  <script>
-    const totalPages = 7; // 🔁 Set this to the actual number of pages in your PDF
-    const pdfFile = "Processing Operations 7-25-2025.pdf";
-    let currentPage = 1;
-
-    setInterval(() => {
-      currentPage = (currentPage % totalPages) + 1;
-      document.getElementById("pdfViewer").src = `${pdfFile}#page=${currentPage}`;
-    }, 60000); // Every 60 seconds
-  </script>
+  <div class="gif-container">
+    <img src="slideshow.gif" alt="Slideshow Animation">
+  </div>
 </body>
 </html>
