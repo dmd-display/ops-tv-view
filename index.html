@@ -2,28 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Display</title>
+  <title>PDF Viewer</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       margin: 0;
       padding: 20px;
-      text-align: center;
     }
-    h1 {
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ccc;
       margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+    .logo {
+      height: 40px;
     }
     iframe {
       width: 90%;
       height: 90vh;
       border: none;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      display: block;
+      margin: 0 auto;
     }
   </style>
 </head>
 <body>
-  <h1>Presentation Viewer</h1>
+  <div class="header">
+    <h1>Presentation Viewer</h1>
+    <img src="DMD_logo.png" alt="Company Logo" class="logo">
+  </div>
   <iframe src="Processing Operations 7-25-2025.pdf"></iframe>
 </body>
 </html>
+"""
