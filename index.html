@@ -8,28 +8,29 @@
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
       margin: 0;
-      padding: 15px;
+      padding: 10px;
     }
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 10px;
+      padding-bottom: 5px;
       border-bottom: 2px solid #ccc;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
     .header h1 {
-      font-size: 18px;
+      font-size: 16px;
       margin: 0;
     }
     .logo {
       height: 40px;
     }
-    .gif-container {
+    .viewer {
       display: flex;
       justify-content: center;
+      align-items: center;
     }
-    .gif-container img {
+    .viewer img {
       max-width: 90%;
       max-height: 90vh;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -38,12 +39,42 @@
 </head>
 <body>
   <div class="header">
-    <h1>SampleTitle</h1>
+    <h1>Sample Title</h1>
     <img src="DMD_logo.png" alt="Company Logo" class="logo">
   </div>
 
-  <div class="gif-container">
-    <img src="slideshow.gif" alt="Slideshow Animation">
+  <div class="viewer">
+    <img id="viewerImage" src="slideshow.gif" alt="Presentation">
   </div>
+
+  <script>
+    const gifPath = "slideshow.gif";
+    const fallbackImages = [
+      "slide1.jpg",
+      "slide2.jpg",
+      "slide3.jpg"
+      // Add more image filenames here
+    ];
+    let currentIndex = 0;
+    const viewer = document.getElementById("viewerImage");
+
+    function startSlideshow() {
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % fallbackImages.length;
+        viewer.src = fallbackImages[currentIndex];
+      }, 60000); // Flip every 60 seconds
+    }
+
+    // Check if GIF loads
+    const testGif = new Image();
+    testGif.onload = function () {
+      viewer.src = gifPath;
+    };
+    testGif.onerror = function () {
+      viewer.src = fallbackImages[0];
+      startSlideshow();
+    };
+    testGif.src = gifPath;
+  </script>
 </body>
 </html>
