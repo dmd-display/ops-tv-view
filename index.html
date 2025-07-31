@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title> DMD Systems Recovery</title>
+  <title>DMD Systems Recovery</title>
   <style>
     html, body {
       margin: 0;
@@ -22,30 +22,35 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     #fullscreenBtn {
       position: absolute;
       bottom: 15px;
       right: 15px;
-      padding: 5px 15px;
-      font-size: 12px;
-      background-color: rgba(0, 0, 0, 0.7);
+      font-size: 16px;
+      background: none;
       color: white;
       border: none;
-      border-radius: 5px;
       cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    #container:hover #fullscreenBtn {
+      opacity: 1;
     }
 
     #fullscreenBtn:hover {
-      background-color: rgba(255, 255, 255, 0.3);
+      color: #aaa;
     }
   </style>
 </head>
 <body>
   <div id="container">
-    <img src="slideshow.gif" alt="Full Screen">
-    <button id="fullscreenBtn">Full Screen</button>
+    <img src="slideshow.gif" alt="Welcome to DMD slides">
+    <button id="fullscreenBtn" title="Fullscreen">🔳</button>
   </div>
 
   <script>
@@ -53,12 +58,14 @@
     const container = document.getElementById('container');
 
     button.addEventListener('click', () => {
-      if (container.requestFullscreen) {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else if (container.requestFullscreen) {
         container.requestFullscreen();
-      } else if (container.webkitRequestFullscreen) { // Safari
-        container.webkitRequestFullscreen();
-      } else if (container.msRequestFullscreen) { // IE11
-        container.msRequestFullscreen();
+      } else if (container.webkitRequestFullscreen) {
+        container.webkitRequestFullscreen(); // Safari
+      } else if (container.msRequestFullscreen) {
+        container.msRequestFullscreen(); // IE11
       }
     });
   </script>
