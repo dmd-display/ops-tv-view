@@ -4,77 +4,22 @@
   <meta charset="UTF-8">
   <title>DMD Systems</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
+    html, body {
       margin: 0;
-      padding: 10px;
+      padding: 0;
+      height: 100%;
+      background-color: black; /* optional */
     }
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 5px;
-      border-bottom: 2px solid #ccc;
-      margin-bottom: 10px;
-    }
-    .header h1 {
-      font-size: 16px;
-      margin: 0;
-    }
-    .logo {
-      height: 40px;
-    }
-    .viewer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .viewer img {
-      max-width: 90%;
-      max-height: 90vh;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+    img {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>Sample Title</h1>
-    <img src="DMD_logo.png" alt="Company Logo" class="logo">
-  </div>
-
-  <div class="viewer">
-    <img id="viewerImage" src="slideshow.gif" alt="Presentation">
-  </div>
-
-  <script>
-    const gifPath = "slideshow.gif";
-    const fallbackImages = [
-      "slide1.jpg",
-      "slide2.jpg",
-      "slide3.jpg"
-      // Add more image filenames here
-    ];
-    let currentIndex = 0;
-    const viewer = document.getElementById("viewerImage");
-
-    function startSlideshow() {
-      setInterval(() => {
-        currentIndex = (currentIndex + 1) % fallbackImages.length;
-        viewer.src = fallbackImages[currentIndex];
-      }, 60000); // Flip every 60 seconds
-    }
-
-    // Check if GIF loads
-    const testGif = new Image();
-    testGif.onload = function () {
-      viewer.src = gifPath;
-    };
-    testGif.onerror = function () {
-      viewer.src = fallbackImages[0];
-      startSlideshow();
-    };
-    testGif.src = gifPath;
-  </script>
+  <img src="slideshow.gif" alt="Full Screen View">
 </body>
 </html>
